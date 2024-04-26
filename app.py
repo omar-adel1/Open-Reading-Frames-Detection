@@ -38,12 +38,14 @@ with left_side:
 # Display the length of the input text
 st.write(f'You wrote {len(txt)} characters.')
 
-# Find ORFs and display
-orfs = functions.find_orfs(dna_sequence, min_length=min_orf_length)
+dna_sequence_str = str(dna_sequence)
+
+# Call the find_orfs function with the converted sequence
+orfs = functions.find_orfs(dna_sequence_str, min_length=min_orf_length)
 with right_side:
     st.write("Open Reading Frames (ORFs):")
     if not orfs:
         st.write("No ORFs found.")
     else:
-        for i, orf in enumerate(orfs, 1):
-            st.write(f"ORF {i}: {orf}")
+        for i, (orf_sequence, start_pos, stop_pos) in enumerate(orfs, 1):
+            st.write(f"ORF {i}: {orf_sequence}   , Start: {start_pos}   , End: {stop_pos}")
