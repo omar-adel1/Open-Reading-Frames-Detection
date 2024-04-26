@@ -36,7 +36,7 @@ with left_side:
 
 # Right side column
 # Display the length of the input text
-st.write(f'You wrote {len(txt)} characters.')
+    st.write(f'You wrote {len(txt)} characters.')
 
 dna_sequence_str = str(dna_sequence)
 
